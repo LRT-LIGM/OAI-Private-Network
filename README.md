@@ -6,7 +6,7 @@ This repo contains information about how to deploy open air interface
 ```bash 
 python -m venv venv 
 source venv/bin/activate
-pip install - requirements.txt
+pip install -r requirements.txt
 ```
 
 ## How to deploy docs
