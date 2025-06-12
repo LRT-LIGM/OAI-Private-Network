@@ -77,5 +77,3 @@ AT+QENG="servingcell"
 ---
 
 ## References
-
-* [Quectel RM500Q AT Manual](https://www.quectel.com/product/5g-rm500q-series/)
