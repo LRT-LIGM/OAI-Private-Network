@@ -25,11 +25,20 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started:
-      - Usage Guide: usage.md
-      - Intern Roadmap: intern-roadmap.md
-  - API Reference:
-      - Backend API: api/backend.md
+  - Configuration: configuration.md
+  - Installation: installation.md
+  - Lancement: lancement.md
+  - USRP: usrp_sdr.md
+  - Les Commandes:
+      - QMI Commands: qmi_commands.md
+      - AT Commandes: at_commands_reference.md
+      - SQL Commands: docker_mysql_oai_commands.md
+  - Tests: 
+      - Log gNodeB: softmodem_log_success.md
+      - Programmation De La Carte SIM: sim_programming_success.md
+  - Uicc SIM: uicc_sim_commands.md
+  - Troubleshooting : 
+      - PDU Session Conflict : pdu_session_conflict.md
 
 markdown_extensions:
   - toc:
