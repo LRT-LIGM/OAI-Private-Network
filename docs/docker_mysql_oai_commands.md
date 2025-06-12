@@ -1,26 +1,26 @@
-# Accès à la base de données MySQL dans un conteneur Docker (OAI)
+# Accessing the MySQL Database in a Docker Container (OAI)
 
-Ce fichier récapitule les commandes utilisées pour accéder, interagir et manipuler la base de données `oai_db` utilisée dans le core OAI 5G.
+This file summarizes the commands used to access, interact with, and manipulate the `oai_db` database used in the OAI 5G core.
 
 ---
 
-## 1. Se connecter au conteneur MySQL
+## 1. Connect to the MySQL container
 
 ```bash
 docker exec -it mysql bash
 ```
 
-Une fois dans le conteneur :
+Once inside the container:
 
 ```bash
 mysql -uroot -p
 ```
 
-> Le mot de passe root est souvent `linux` (ou défini dans `docker-compose.yaml`).
+> The root password is often `linux` (or defined in `docker-compose.yaml`).
 
 ---
 
-## 2. Afficher les bases disponibles
+## 2. Show available databases
 
 ```sql
 SHOW DATABASES;
@@ -28,7 +28,7 @@ SHOW DATABASES;
 
 ---
 
-## 3. Utiliser la base de données OAI
+## 3. Use the OAI database
 
 ```sql
 USE oai_db;
@@ -36,7 +36,7 @@ USE oai_db;
 
 ---
 
-## 4. Lister les tables
+## 4. List the tables
 
 ```sql
 SHOW TABLES;
@@ -44,7 +44,7 @@ SHOW TABLES;
 
 ---
 
-## 5. Rechercher un abonné via l’IMSI
+## 5. Search for a subscriber via IMSI
 
 ```sql
 SELECT * FROM AuthenticationSubscription WHERE ueId = '001010000000002';
@@ -54,9 +54,9 @@ SELECT * FROM AccessAndMobilitySubscriptionData WHERE ueId = '001010000000002';
 
 ---
 
-## 6. Ajouter un nouvel abonné
+## 6. Add a new subscriber
 
-> Exemple avec IMSI `001010000000005`
+> Example with IMSI `001010000000005`
 
 ```sql
 INSERT INTO AuthenticationSubscription
@@ -71,7 +71,7 @@ VALUES
 
 ---
 
-## 7. Supprimer un abonné (si nécessaire)
+## 7. Delete a subscriber (if needed)
 
 ```sql
 DELETE FROM AuthenticationSubscription WHERE ueId = '001010000000005';
@@ -81,7 +81,7 @@ DELETE FROM AccessAndMobilitySubscriptionData WHERE ueId = '001010000000005';
 
 ---
 
-## 8. Redémarrer les services liés (après modification)
+## 8. Restart related services (after modification)
 
 ```bash
 docker-compose restart oai-amf
@@ -90,7 +90,7 @@ docker-compose restart oai-smf
 
 ---
 
-## Remarques
+## Notes
 
-- Ces opérations sont **critiques** pour l'enregistrement et l'attachement d'un UE 5G.
-- Toujours vérifier l’IMSI et les clés (`K`, `OPC`) avant insertion.
+* These operations are **critical** for the registration and attachment of a 5G UE.
+* Always verify the IMSI and keys (`K`, `OPC`) before inserting.

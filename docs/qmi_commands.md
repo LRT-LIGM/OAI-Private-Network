@@ -1,66 +1,66 @@
-# Commandes QMI utilisées
+# QMI Commands Used
 
-Ce document liste et explique toutes les commandes `qmicli` et associées utilisées lors du projet de réseau privé 5G avec le modem Quectel.
+This document lists and explains all `qmicli` and related commands used during the 5G private network project with the Quectel modem.
 
 ---
 
-## Signal & Réseau
+## Signal & Network
 
-### Obtenir la puissance du signal
+### Get signal strength
 
 ```bash
 sudo qmicli -d /dev/cdc-wdm1 --nas-get-signal-strength
-````
+```
 
-> Affiche le RSSI, SINR, ECIO... Ex : `Network 'umts': '-70 dBm'`
+> Displays RSSI, SINR, ECIO... Example: `Network 'umts': '-70 dBm'`
 
 ---
 
-### Scanner les réseaux disponibles
+### Scan available networks
 
 ```bash
 sudo qmicli -d /dev/cdc-wdm1 --nas-network-scan
 ```
 
-> Affiche les réseaux détectés avec leur MCC/MNC, status (`available`, `forbidden`, etc.) et technologie (RAT : LTE, UMTS...).
+> Displays detected networks with their MCC/MNC, status (`available`, `forbidden`, etc.), and technology (RAT: LTE, UMTS...).
 
 ---
 
-### Vérifier l’état de la connexion réseau
+### Check network connection status
 
 ```bash
 sudo qmicli -d /dev/cdc-wdm1 --nas-get-serving-system
 ```
 
-> Permet de voir si le modem est enregistré, s’il est en roaming, etc.
+> Shows whether the modem is registered, in roaming, etc.
 
 ---
 
-## Statut SIM et carte
+## SIM & Card Status
 
-### Vérifier l’état de la carte SIM
+### Check SIM card status
 
 ```bash
 sudo qmicli -d /dev/cdc-wdm1 --uim-get-card-status
 ```
 
-> Ex : `SIMStatus: SIM_READY`, `PIN2 state: enabled-not-verified`
+> Example: `SIMStatus: SIM_READY`, `PIN2 state: enabled-not-verified`
 
 ---
 
-### Déverrouiller la carte SIM (PIN1 / PIN2)
+### Unlock SIM card (PIN1 / PIN2)
 
 ```bash
 sudo qmicli -d /dev/cdc-wdm1 --uim-verify-pin="0000"
 ```
 
-> Utilisé si la carte SIM est protégée par un code PIN.
+> Used if the SIM card is protected with a PIN code.
 
 ---
 
-## Interfaces réseau
+## Network Interfaces
 
-### Remettre l’interface wwan0 en ligne
+### Bring the `wwan0` interface up
 
 ```bash
 sudo ip link set wwan0 up
@@ -68,39 +68,37 @@ sudo ip link set wwan0 up
 
 ---
 
-### Tenter d’obtenir une IP via DHCP
+### Try to obtain an IP via DHCP
 
 ```bash
 sudo udhcpc -i wwan0
 ```
 
-> Peut entrer en boucle si le modem n’est pas attaché au réseau.
+> May loop if the modem is not attached to the network.
 
 ---
 
-## Connexion au réseau avec `quectel-CM`
+## Connect to the network using `quectel-CM`
 
 ```bash
 sudo ./quectel-CM -s ebouygtel.com
 ```
 
-> Lance la connexion à l’APN Bouygues. À faire uniquement si la SIM est autorisée.
+> Starts the connection to the Bouygues APN. Only do this if the SIM is authorized.
 
 ---
 
-## Réinitialiser le modem (si problème USB)
+## Reset the modem (if USB issues occur)
 
 ```bash
 sudo usb_modeswitch -v 2c7c -p 0801 -R
 ```
 
-> Pour réinitialiser le périphérique USB en cas de non-détection.
+> Resets the USB device in case of non-detection.
 
 ---
 
-📌 **Remarques** :
+📌 **Notes**:
 
-* L’interface QMI est accessible via `/dev/cdc-wdm1`.
-* En cas de changement de port USB ou reset : revérifier le device.
-
----
+* The QMI interface is accessible via `/dev/cdc-wdm1`.
+* If the USB port changes or a reset is performed: recheck the device.

@@ -1,71 +1,72 @@
-# Commandes AT essentielles pour tester un module 5G (ex. : Quectel RM500Q)
+# Essential AT Commands for Testing a 5G Module (e.g. Quectel RM500Q)
 
-Ce document regroupe les commandes AT utiles pour interagir avec un modem 5G dans un environnement de test avec OpenAirInterface.
+This document gathers useful AT commands to interact with a 5G modem in a testing environment with OpenAirInterface.
 
 ---
 
-## Lancer minicom
+## Launch minicom
+
 ```bash
 sudo minicom -D /dev/ttyUSB2
 ```
 
-## Commandes de base
+## Basic commands
 
-```text
-AT                          → Vérifie si le module répond (doit renvoyer OK)
-ATE0                        → Désactive l’écho des commandes (facultatif)
-AT+CPIN?                    → Vérifie l’état de la carte SIM (doit afficher +CPIN: READY)
-AT+COPS?                    → Vérifie l’opérateur sélectionné automatiquement
-AT+COPS=0                   → Force la sélection automatique de l’opérateur
-AT+COPS=1,2,"00101"         → Force l’enregistrement sur le PLMN 00101 (OAI)
+```bash
+AT                          → Check if the module responds (should return OK)
+ATE0                        → Disable command echo (optional)
+AT+CPIN?                    → Check SIM card status (should display +CPIN: READY)
+AT+COPS?                    → Check the automatically selected operator
+AT+COPS=0                   → Force automatic operator selection
+AT+COPS=1,2,"00101"         → Force registration on PLMN 00101 (OAI)
 ```
 
 ---
 
-## Informations de réseau
+## Network information
 
-```text
-AT+CREG?                    → Vérifie l’enregistrement sur le réseau
-AT+CEREG?                   → Même chose pour le réseau EPS (LTE/5G)
-AT+QENG="servingcell"      → Affiche les infos sur la cellule (RSRP, SINR, etc.)
-AT+CSQ                      → Niveau de signal reçu (0-31) et BER
+```bash
+AT+CREG?                    → Check network registration
+AT+CEREG?                   → Same for EPS network (LTE/5G)
+AT+QENG="servingcell"      → Display cell info (RSRP, SINR, etc.)
+AT+CSQ                      → Received signal strength (0-31) and BER
 ```
 
 ---
 
-## Configuration du mode radio
+## Radio mode configuration
 
-```text
-AT+QCFG="nwscanmode"       → Définit le mode de scan (2 = LTE only, 3 = NR5G only)
-AT+QCFG="iotopmode"        → Définit le mode 5G préféré (ex. : 1 = SA)
-AT+QNWPREFCFG="mode_pref"  → Vérifie les modes préférés (LTE, 5G...)
-AT+QNWPREFCFG="nr5g_band"  → Liste ou configure les bandes activées (ex. 78)
+```bash
+AT+QCFG="nwscanmode"       → Set scan mode (2 = LTE only, 3 = NR5G only)
+AT+QCFG="iotopmode"        → Set preferred 5G mode (e.g. 1 = SA)
+AT+QNWPREFCFG="mode_pref"  → Check preferred modes (LTE, 5G...)
+AT+QNWPREFCFG="nr5g_band"  → List or configure enabled bands (e.g. 78)
 ```
 
 ---
 
-## Commandes de nettoyage / reset
+## Cleanup / Reset commands
 
-```text
-AT+CFUN=1,1                → Redémarre le module (équivalent reset)
-AT+QPOWD=1                 → Éteint proprement le module
+```bash
+AT+CFUN=1,1                → Reboot the module (equivalent to reset)
+AT+QPOWD=1                 → Properly shut down the module
 ```
 
 ---
 
-## Commandes utiles pour debug
+## Useful debug commands
 
-```text
-AT+CCLK?                   → Vérifie l’horloge temps réel (utile pour logs)
-AT+CPIN?                   → Vérifie l’état SIM
-AT+QENG="servingcell"      → Toujours utile pour le statut réseau
+```bash
+AT+CCLK?                   → Check real-time clock (useful for logs)
+AT+CPIN?                   → Check SIM status
+AT+QENG="servingcell"      → Always useful for network status
 ```
 
 ---
 
-## Exemple de séquence typique de test
+## Example of a typical test sequence
 
-```text
+```bash
 AT
 AT+CPIN?
 AT+COPS=0
@@ -75,5 +76,6 @@ AT+QENG="servingcell"
 
 ---
 
-## Références
-- [Manuel AT Quectel RM500Q](https://www.quectel.com/product/5g-rm500q-series/)
+## References
+
+* [Quectel RM500Q AT Manual](https://www.quectel.com/product/5g-rm500q-series/)

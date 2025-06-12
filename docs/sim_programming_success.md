@@ -1,12 +1,13 @@
-# Programmation SIM réussie via `program_uicc`
+# Successful SIM Programming via `program_uicc`
 
-Cette session documente une programmation réussie d’une carte SIM avec le binaire `program_uicc` dans un environnement de test 5G (OpenAirInterface).
+This session documents a successful programming of a SIM card using the `program_uicc` binary in a 5G test environment (OpenAirInterface).
 
 ---
 
-## Informations de la session
+## Session Information
 
-- **Commande utilisée** :
+* **Command used**:
+
 ```bash
 sudo ./program_uicc \
   --adm 12345678 \
@@ -20,7 +21,8 @@ sudo ./program_uicc \
   --noreadafter
 ```
 
-## Résultat :
+## Result:
+
 ```bash
 Existing values in USIM
 ICCID: 89330061100000000022
@@ -39,31 +41,30 @@ set HSS SQN value as: 2784
 
 ---
 
-## Paramètres programmés
+## Programmed Parameters
 
-| Élément        | Valeur                                      |
-|----------------|----------------------------------------------|
-| IMSI           | `001010000000005`                            |
-| MSISDN         | `00000001`                                   |
-| ACC            | `0001`                                       |
-| Clé K          | `6874736969202073796d4b2079650a73`           |
-| OPC            | `504f20634f6320504f50206363500a4f`           |
-| SPN            | `OpenCells01`                                |
-| Code ADM       | `12345678`                                   |
+| Element  | Value                              |
+| -------- | ---------------------------------- |
+| IMSI     | `001010000000005`                  |
+| MSISDN   | `00000001`                         |
+| ACC      | `0001`                             |
+| Key K    | `6874736969202073796d4b2079650a73` |
+| OPC      | `504f20634f6320504f50206363500a4f` |
+| SPN      | `OpenCells01`                      |
+| ADM Code | `12345678`                         |
 
 ---
 
-## Résultat
+## Result
 
-- **Authentification réussie** (`Succeeded to authentify`)
-- SQN lu depuis la carte : `2752`
-- SQN mis à jour dans la SIM : `2784`
-- Aucun blocage lié au code ADM
+* **Authentication successful** (`Succeeded to authentify`)
+* SQN read from the SIM: `2752`
+* SQN updated in the SIM: `2784`
+* No blocking issue related to ADM code
 
 ---
 
 ## Notes
 
-- Cette carte peut maintenant être enregistrée côté AMF en ajoutant l’IMSI et les clés dans la base de données `oai_db`.
-- Le champ `--noreadafter` permet de **ne pas relire** la SIM après écriture (utile en batch).
-
+* This SIM card can now be registered in the AMF by adding the IMSI and keys into the `oai_db` database.
+* The `--noreadafter` option prevents **re-reading** the SIM after writing (useful for batch programming).

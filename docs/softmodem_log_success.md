@@ -1,20 +1,25 @@
-# softmodem.log — Journal de Connexion Réussie
-
-Ce fichier contient le journal complet (`softmodem.log`) correspondant à une exécution **réussie** du gNodeB `nr-softmodem` avec une carte SIM correctement programmée et enregistrée.
+Here is the **full English translation** of your document — same structure and ready to insert into your report or GitHub:
 
 ---
 
-## Détails du fichier
+# softmodem.log — Successful Connection Log
 
-- **Nom du fichier** : `softmodem.log`
-- **Contexte** :
-  - SIM configurée avec IMSI : `001010000000002`
-  - Core OAI : Docker avec MySQL (`oai_db`)
-  - RAN : `nr-softmodem` lancé en mode `--continuous-tx` avec SDR (B210)
+This file contains the complete log (`softmodem.log`) corresponding to a **successful** run of the gNodeB `nr-softmodem` with a correctly programmed and registered SIM card.
 
 ---
 
-## Extrait brut du journal
+## File Details
+
+* **File name**: `softmodem.log`
+* **Context**:
+
+  * SIM configured with IMSI: `001010000000002`
+  * OAI Core: Docker with MySQL (`oai_db`)
+  * RAN: `nr-softmodem` launched in `--continuous-tx` mode with SDR (B210)
+
+---
+
+## Raw Log Excerpt
 
 ```bash
 [UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
@@ -380,3 +385,17 @@ UE a616: LCID 4: TX            883 RX          40074 bytes
 
 - Projet OAI : [openairinterface5g](https://gitlab.eurecom.fr/oai/openairinterface5g)
 - Programmation SIM : [OpenCells](https://open-cells.com/index.php/uiccsim-programing/)
+
+## Success Indicators Detected
+
+* Modem initialized without crash ✅
+* 5G signal captured with good SNR ✅
+* UE successfully connected to the network ✅
+
+---
+
+## References
+
+* OAI Project: [openairinterface5g](https://gitlab.eurecom.fr/oai/openairinterface5g)
+* SIM Programming: [OpenCells](https://open-cells.com/index.php/uiccsim-programing/)
+

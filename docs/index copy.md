@@ -1,50 +1,50 @@
-# Projet de Stage – OAI Private Network
+# Internship Project – OAI Private Network
 
-Bienvenue dans la documentation du projet **OAI-Private-Network-main**, réalisé dans le cadre de mon stage de 2e année de BUT Réseaux & Télécommunications.
+Welcome to the documentation of the **OAI-Private-Network-main** project, carried out as part of my 2nd-year internship in the BUT Networks & Telecommunications program.
 
-## Objectif du stage
+## Internship Objective
 
-Mettre en place un réseau 5G privé en utilisant la suite **OpenAirInterface (OAI)** :
-- Déployer un **Core 5G (CN5G)**,
-- Configurer un **gNodeB**,
-- Connecter un **UE (User Equipment)** virtuel ou physique,
-- Réaliser des **tests de connectivité et de performance**,
-- Documenter toute la procédure pour une future reprise ou amélioration.
+Set up a private 5G network using the **OpenAirInterface (OAI)** suite:
 
-## Encadrants
+* Deploy a **5G Core (CN5G)**,
+* Configure a **gNodeB**,
+* Connect a **UE (User Equipment)** (virtual or physical),
+* Perform **connectivity and performance tests**,
+* Document the entire procedure for future handover or improvement.
 
-- **Tuteur de stage** : M. Labiod  
-- **Référent technique** : M. Clément  
-- **Établissement** : IUT Créteil-Vitry, Université Paris-Est Créteil (UPEC)
+## Supervisors
 
-## Environnement technique
+* **Internship supervisor**: Mr. Labiod
+* **Technical advisor**: Mr. Clément
+* **Institution**: IUT Créteil-Vitry, Université Paris-Est Créteil (UPEC)
 
-- Distribution Linux : **Ubuntu 22.04**
-- Processeur : **x86_64**
-- SDR virtuel avec `--rfsim` (mode simulation radio)
-- Matériel utilisé : **module Quectel RM500Q**
-- Technologies utilisées :
-  - Docker, Docker-compose
-  - QMI (Qualcomm Modem Interface)
-  - `quectel-CM` pour l’interface modem
-  - `qmicli` pour les commandes de bas niveau
+## Technical Environment
 
-## Structure de la documentation
+* Linux distribution: **Ubuntu 22.04**
+* Processor: **x86\_64**
+* Virtual SDR with `--rfsim` (radio simulation mode)
+* Hardware used: **Quectel RM500Q module**
+* Technologies used:
 
-Cette documentation est divisée en plusieurs parties pour suivre l’évolution du projet :
+  * Docker, Docker Compose
+  * QMI (Qualcomm Modem Interface)
+  * `quectel-CM` for modem interface
+  * `qmicli` for low-level commands
 
-1. **Installation** – Étapes d’installation des dépendances et outils
-2. **Configuration** – Détails des fichiers et paramètres configurés
-3. **Module Quectel** – Connexion avec carte SIM et diagnostic modem
-4. **Commandes QMI** – Répertoire des commandes utiles et leur explication
-5. **Tests** – Résultats des tests effectués
-6. **Problèmes & Solutions** – Liste des blocages et résolutions
-7. **Ressources** – Liens utiles et documentation externe
-8. **Bilan** – Retours sur le projet, apprentissages et recommandations
+## Documentation Structure
 
-## Suivi du projet
+This documentation is divided into several parts to follow the project's progress:
 
-Les fichiers `.md` présents ici sont lisibles en WebUI grâce à l’intégration Markdown.  
-Chaque section peut être consultée pour mieux comprendre les étapes du projet ou le reproduire dans un autre environnement.
+1. **Installation** – Steps to install dependencies and tools
+2. **Configuration** – Details of configured files and parameters
+3. **Quectel Module** – SIM card connection and modem diagnostics
+4. **QMI Commands** – Directory of useful commands and their explanation
+5. **Tests** – Results of the tests performed
+6. **Issues & Solutions** – List of blockers and their resolutions
+7. **Resources** – Useful links and external documentation
+8. **Summary** – Project feedback, lessons learned, and recommendations
 
----
+## Project Tracking
+
+The `.md` files provided here can be read via a WebUI thanks to Markdown integration.
+Each section can be reviewed to better understand the project steps or to reproduce it in another environment.

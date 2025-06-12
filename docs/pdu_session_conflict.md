@@ -1,6 +1,6 @@
-# Erreur RRC : PDU Session déjà existante
+# RRC Error: PDU Session Already Exists
 
-## Message d’erreur rencontré
+## Error Message Encountered
 
 ```text
 [NR_RRC]   UE 1: already has existing PDU session 1 rejecting PDU Session Resource Setup Request
@@ -8,27 +8,27 @@
 
 ---
 
-## Signification
+## Meaning
 
-Cette erreur indique que le **gNodeB** a déjà une **session PDU active** (ID = 1) pour l'UE.  
-Quand une nouvelle requête arrive avec le même ID, elle est rejetée.
-
----
-
-## Causes possibles
-
-- L’UE (modem ou softmodem) tente de créer une session déjà active.
-- Le gNodeB conserve un **ancien contexte PDU**.
-- Le core (AMF/SMF) n’a pas libéré les sessions précédentes.
+This error indicates that the **gNodeB** already has an **active PDU session** (ID = 1) for the UE.
+When a new request arrives with the same ID, it is rejected.
 
 ---
 
-## Solutions recommandées
+## Possible Causes
 
-### 1. Redémarrer tous les services pour nettoyer les contextes
+* The UE (modem or softmodem) is trying to create a session that is already active.
+* The gNodeB is keeping an **old PDU context**.
+* The core (AMF/SMF) has not released previous sessions.
+
+---
+
+## Recommended Solutions
+
+### 1. Restart all services to clean contexts
 
 ```bash
-# Core 5G
+# 5G Core
 cd ~/Documents/oai-cn5g
 docker-compose down
 docker-compose up -d
@@ -40,14 +40,16 @@ sudo ./nr-softmodem -O <conf-file> ...
 
 ---
 
-### 2. Redémarrer l'UE (modem ou softmodem)
+### 2. Restart the UE (modem or softmodem)
 
-#### Modem Quectel :
+#### Quectel Modem:
+
 ```bash
 AT+CFUN=1,1
 ```
 
-#### Soft UE (`nr-uesoftmodem`) :
+#### Soft UE (`nr-uesoftmodem`):
+
 ```bash
 sudo pkill nr-uesoftmodem
 sudo ./nr-uesoftmodem ...
@@ -55,29 +57,30 @@ sudo ./nr-uesoftmodem ...
 
 ---
 
-### 3. Nettoyage manuel de la session PDU dans MySQL
+### 3. Manual PDU Session cleanup in MySQL
 
-*À utiliser avec précaution.*
+*Use with caution.*
 
 ```sql
 DELETE FROM SmfRegistrations WHERE supi = '001010000000005';
 ```
 
-Puis redémarrer le SMF :
+Then restart the SMF:
+
 ```bash
 docker-compose restart oai-smf
 ```
 
 ---
 
-## À éviter
+## To Avoid
 
-- Ne pas relancer `nr-softmodem` en boucle sans redémarrer l'UE ou le core.
-- Cela maintient un contexte invalide côté gNodeB.
+* Do not relaunch `nr-softmodem` repeatedly without restarting the UE or the core.
+* This will maintain an invalid context on the gNodeB side.
 
 ---
 
-## Référence
+## Reference
 
-- Source : logs `nr-softmodem`, RRC layer
-- Contexte : simulation 5G SA avec OpenAirInterface + USRP/Quectel
+* Source: `nr-softmodem` logs, RRC layer
+* Context: 5G SA simulation with OpenAirInterface + USRP/Quectel

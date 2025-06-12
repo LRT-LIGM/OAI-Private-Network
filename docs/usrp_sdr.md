@@ -1,38 +1,38 @@
-# Utilisation du SDR USRP avec OAI
+# Using SDR USRP with OAI
 
-Cette page documente l'utilisation du périphérique SDR **USRP B210** dans le cadre du projet de réseau privé 5G avec OpenAirInterface.
+This page documents the use of the **USRP B210** SDR device in the context of the private 5G network project with OpenAirInterface.
 
-## Objectif
+## Objective
 
-Permettre la transmission et la réception des signaux radio via l’USRP pour :
+Enable radio signal transmission and reception via the USRP to:
 
-- Tester la couche PHY avec le `gNB`
-- Vérifier le lien radio avec un `UE` logiciel ou physique (par exemple module Quectel)
+* Test the PHY layer with the `gNB`
+* Verify the radio link with a software or physical `UE` (e.g. Quectel module)
 
-## Préparation
+## Preparation
 
-### 1. Installation des drivers UHD
+### 1. Install UHD drivers
 
 ```bash
 sudo apt install libuhd-dev uhd-host
 sudo uhd_images_downloader
 ```
 
-### 2. Vérification de la connexion USRP
+### 2. Verify USRP connection
 
 ```bash
 uhd_find_devices
 uhd_usrp_probe
 ```
 
-### 3. Lancement du gNB avec l’USRP
+### 3. Launch the gNB with USRP
 
 ```bash
 cd ~/openairinterface5g/cmake_targets/ran_build/build
 sudo ./nr-softmodem -O path/to/gnb-sa.conf
 ```
 
-Assurez-vous que la section suivante du fichier de config est bien définie :
+Ensure that the following section in the config file is properly defined:
 
 ```ini
     rf_config:
@@ -40,18 +40,19 @@ Assurez-vous que la section suivante du fichier de config est bien définie :
       ...
 ```
 
-## Résolution d’erreurs
+## Troubleshooting
 
-* **Erreur “Device not found”** : vérifier câble USB 3.0, alimentation, ou permissions `udev`.
-* **Signal RX faible** : vérifier fréquence, gain, et antennes connectées.
+* **“Device not found” error**: check USB 3.0 cable, power supply, or `udev` permissions.
+* **Weak RX signal**: check frequency, gain, and connected antennas.
 
-> Si USRP pousse probrème, essaye de le changer le port USB dans votre PC.
+> If the USRP has issues, try changing the USB port on your PC.
 
 ---
 
-> ⚠️ L’USRP doit être reconnu correctement avant de lancer le `softmodem`.
+> ⚠️ The USRP must be correctly detected before launching `softmodem`.
 
-## Références utiles
+## Useful References
 
-* [Guide officiel UHD](https://files.ettus.com/manual/)
-* [Configuration RF OAI](https://gitlab.eurecom.fr/oai/openairinterface5g/-/wikis)
+* [Official UHD Guide](https://files.ettus.com/manual/)
+* [OAI RF Configuration](https://gitlab.eurecom.fr/oai/openairinterface5g/-/wikis)
+

@@ -1,12 +1,12 @@
-# Installation – Préparation de l’environnement
+# Installation – Environment Setup
 
-Cette section décrit toutes les étapes nécessaires pour installer les outils utilisés dans le projet OAI Private Network.
+This section describes all the steps required to install the tools used in the OAI Private Network project.
 
 ---
 
-## 1. Dépendances de base
+## 1. Basic dependencies
 
-Avant de cloner le projet, installer les paquets suivants :
+Before cloning the project, install the following packages:
 
 ```bash
 sudo apt update && sudo apt install -y \
@@ -20,7 +20,7 @@ sudo apt update && sudo apt install -y \
 
 ---
 
-## 2. Installation de Docker et Docker Compose
+## 2. Install Docker and Docker Compose
 
 ```bash
 sudo apt install -y docker.io docker-compose
@@ -28,11 +28,11 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 ```
 
-> ⚠️ Redémarrer votre session pour appliquer les droits Docker.
+> ⚠️ Restart your session to apply Docker group permissions.
 
 ---
 
-## 3. Clonage du projet
+## 3. Clone the project
 
 ```bash
 git clone https://github.com/OPENAIRINTERFACE/openairinterface5g.git
@@ -41,31 +41,31 @@ cd openairinterface5g
 
 ---
 
-## 4. Compilation du gNodeB
+## 4. Compile the gNodeB
 
 ```bash
 cd cmake_targets
 ./build_oai -I --gNB
 ```
 
-> Si pas de SDR, utiliser `--rfsim` pour simuler la radio :
+> If no SDR is used, use `--rfsim` to simulate the radio:
 
 ```bash
-sudo ./nr-softmodem -O <chemin_conf> --rfsim
+sudo ./nr-softmodem -O <config_path> --rfsim
 ```
 
 ---
 
-## 5. Core 5G via Docker
+## 5. 5G Core via Docker
 
-Cloner le dépôt CN5G :
+Clone the CN5G repository:
 
 ```bash
 git clone https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git
 cd oai-cn5g-fed/docker-compose
 ```
 
-Télécharger les images Docker :
+Download the Docker images:
 
 ```bash
 ./build_all_images --latest
@@ -74,9 +74,9 @@ docker-compose up -d
 
 ---
 
-## 6. Pilotes pour le modem Quectel
+## 6. Drivers for the Quectel modem
 
-Charger les modules :
+Load the kernel modules:
 
 ```bash
 sudo modprobe option
@@ -84,7 +84,7 @@ sudo modprobe usb_wwan
 sudo modprobe qmi_wwan
 ```
 
-Valider la détection :
+Validate device detection:
 
 ```bash
 ls /dev/cdc-wdm*
@@ -92,14 +92,12 @@ ls /dev/cdc-wdm*
 
 ---
 
-## 7. Organisation des fichiers
+## 7. File organization
 
-Tous les fichiers de travail sont placés dans :
+All working files are placed in:
 
 ```
 ~/Documents/quectel/quectel-CM/
 ~/Documents/openairinterface5g/
 ~/Documents/oai-cn5g-fed/
 ```
-
----

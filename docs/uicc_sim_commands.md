@@ -1,65 +1,76 @@
-# Commandes de programmation UICC / SIM avec `program_uicc`
+# UICC / SIM Programming Commands with `program_uicc`
 
-## Dossier source
+## Source folder
+
 ```bash
 cd ~/Documents/uicc-v3.3
 ```
 
 ## Compilation
+
 ```bash
 g++ -I. -o program_uicc program_uicc.c -lpcsclite
 ```
-> Ajoute `-static-libstdc++ -static-libgcc` pour une version portable.
+
+> Add `-static-libstdc++ -static-libgcc` to produce a portable version.
 
 ---
 
-## Reads basic data in the card
+## Read basic data from the card
+
 ```bash
 sudo DEBUG=y ./program_uicc
 ```
 
-## Pouir aider
+## Help command
+
 ```bash
 sudo ./program_uicc --help
 ```
 
-## Lire les informations actuelles de la carte SIM
+## Read current SIM card information
+
 ```bash
 sudo ./program_uicc -p /dev/ttyUSB4
 ```
 
-Affiche :
-- IMSI
-- ICCID
-- MSISDN
-- PLMN
-- Service Provider Name (SPN)
+Displays:
+
+* IMSI
+* ICCID
+* MSISDN
+* PLMN
+* Service Provider Name (SPN)
 
 ---
 
-## Tester le port du programmateur SIM
-Lister les périphériques :
+## Test SIM programmer port
+
+List devices:
+
 ```bash
 dmesg | grep ttyUSB
 ```
 
-Accès au port :
+Access the port:
+
 ```bash
 ls -l /dev/ttyUSB*
 ```
 
 ---
 
-## Erreurs courantes
+## Common errors
 
-| Erreur | Cause | Solution |
-|--------|-------|----------|
-| `No ADM code` | Carte protégée | Essayer un autre ADM ou carte |
-| `ATR=""` | SIM mal insérée / port invalide | Vérifie / change de port |
-| `GLIBCXX_3.4.32 not found` | Binaire incompatible | Recompiler avec `g++` local |
+| Error                      | Cause                                  | Solution                         |
+| -------------------------- | -------------------------------------- | -------------------------------- |
+| `No ADM code`              | Card is protected                      | Try a different ADM code or card |
+| `ATR=""`                   | SIM improperly inserted / invalid port | Check the SIM / change port      |
+| `GLIBCXX_3.4.32 not found` | Incompatible binary                    | Recompile with local `g++`       |
 
 ---
 
-## Références
-- Site OpenCells : https://open-cells.com/index.php/uiccsim-programing/
-- Repo OAI officiel : https://gitlab.eurecom.fr/oai/openairinterface5g
+## References
+
+* OpenCells site: [https://open-cells.com/index.php/uiccsim-programing/](https://open-cells.com/index.php/uiccsim-programing/)
+* Official OAI repo: [https://gitlab.eurecom.fr/oai/openairinterface5g](https://gitlab.eurecom.fr/oai/openairinterface5g)

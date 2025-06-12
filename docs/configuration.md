@@ -1,12 +1,12 @@
-# Configuration – Mise en place du réseau privé 5G
+# Configuration – Setting up the Private 5G Network
 
-Ce fichier détaille la configuration de chaque composant de l’environnement OAI : core réseau, gNodeB, UE et modem.
+This file details the configuration of each component of the OAI environment: core network, gNodeB, UE, and modem.
 
 ---
 
-## 1. Core 5G (CN5G)
+## 1. 5G Core (CN5G)
 
-### a. Clonage et lancement
+### a. Cloning and launching
 
 ```bash
 wget -O ~/oai-cn5g.zip https://gitlab.eurecom.fr/oai/openairinterface5g/-/archive/develop/openairinterface5g-develop.zip?path=doc/tutorial_resources/oai-cn5g
@@ -15,15 +15,14 @@ cd oai-cn5g
 docker-compose up --build
 ```
 
-
-### b. Vérification
+### b. Verification
 
 ```bash
 docker ps
 docker-compose logs -f oai-amf
 ```
 
-> Tous les conteneurs doivent être en `healthy`.
+> All containers should show `healthy` status.
 
 ---
 
@@ -36,19 +35,19 @@ cd openairinterface5g/cmake_targets
 ./build_oai -I --gNB
 ```
 
-### b. Lancement en mode simulation (sans SDR)
+### b. Launch in simulation mode (without SDR)
 
 ```bash
 sudo ./nr-softmodem -O ./targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb.sa.conf --rfsim
 ```
 
-> L’option `--rfsim` permet un test sans matériel radio.
+> The `--rfsim` option allows testing without radio hardware.
 
 ---
 
 ## 3. UE – User Equipment
 
-Lancement avec `nr-uesoftmodem` :
+Launch using `nr-uesoftmodem`:
 
 ```bash
 sudo ./nr-uesoftmodem -O ./targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.conf --rfsim
@@ -56,22 +55,22 @@ sudo ./nr-uesoftmodem -O ./targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.conf --rfsim
 
 ---
 
-## 4. Configuration du modem Quectel
+## 4. Quectel Modem Configuration
 
-### a. Lancer l’outil `quectel-CM`
+### a. Launch the `quectel-CM` tool
 
 ```bash
 cd ~/Documents/quectel/quectel-CM/out
 sudo ./quectel-CM -s ebouygtel.com
 ```
 
-### b. Vérification SIM
+### b. SIM verification
 
 ```bash
 sudo qmicli -d /dev/cdc-wdm1 --uim-get-card-status
 ```
 
-### c. Forcer la connexion réseau
+### c. Force network connection
 
 ```bash
 sudo ip link set wwan0 up
@@ -80,13 +79,13 @@ sudo udhcpc -i wwan0
 
 ---
 
-## 5. Scan des réseaux disponibles
+## 5. Scan available networks
 
 ```bash
 sudo qmicli -d /dev/cdc-wdm1 --nas-network-scan
 ```
 
-> Exemple de résultat :
+> Example output:
 
 ```
 Network [6]:
@@ -96,13 +95,11 @@ Network [6]:
 
 ---
 
-## 6. Vérification de l’état de connexion
+## 6. Check connection status
 
 ```bash
 sudo qmicli -d /dev/cdc-wdm1 --nas-get-serving-system
 ```
 
-> Vérifier que `Registration state: registered`
-> et que `DataCap` n’est pas `UNKNOW`.
-
----
+> Verify that `Registration state: registered`
+> and that `DataCap` is not `UNKNOWN`.
