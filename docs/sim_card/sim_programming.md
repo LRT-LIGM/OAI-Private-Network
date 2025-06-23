@@ -1,12 +1,12 @@
-# 📅 Semaine du [à compléter] – Programmation de la carte SIM Sysmocom
+# Semaine du 17 au 21 juin 2025 – Programmation de la carte SIM Sysmocom
 
-## 🎯 Objectif
+## Objectif
 
 Configurer une carte SIM programmable (Sysmocom) afin qu'elle soit utilisable avec un gNodeB (OpenAirInterface), en programmant les champs IMSI, KEY, OPC, ISDN, ACC, SPN, et en vérifiant le fonctionnement de l'authentification AKA.
 
 ---
 
-## 🧰 Matériel utilisé
+## Matériel utilisé
 
 - Carte SIM Sysmocom (ICCID : 8988211000001037921f)
 - Lecteur USB SmartCard compatible PCSC
@@ -16,7 +16,7 @@ Configurer une carte SIM programmable (Sysmocom) afin qu'elle soit utilisable av
 
 ---
 
-## ⚙️ Étapes réalisées
+## Étapes réalisées
 
 ### 🔹 Préparation de l’environnement
 
@@ -50,7 +50,7 @@ Configurer une carte SIM programmable (Sysmocom) afin qu'elle soit utilisable av
 
 ---
 
-## ✅ Résultats actuels
+## Résultats actuels
 
 - La carte SIM répond aux commandes standards
 - Écriture IMSI impossible sans code ADM
@@ -58,7 +58,7 @@ Configurer une carte SIM programmable (Sysmocom) afin qu'elle soit utilisable av
 
 ---
 
-## 🧠 Actions suivantes
+## Actions suivantes
 
 - Contacter M. Labiod pour obtenir le **code ADM** de la SIM (ICCID : 8988211000001037921f)
 - Refaire un test complet avec le bon code ADM dès que disponible

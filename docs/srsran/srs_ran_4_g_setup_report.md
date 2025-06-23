@@ -1,6 +1,6 @@
-# 📅 Rapport hebdomadaire – srsRAN 4G avec EPC (Semaine à compléter)
+# Rapport hebdomadaire – srsRAN 4G avec EPC (Semaine du 17 au 21 juin 2025)
 
-## 🎯 Objectif de la semaine
+## Objectif de la semaine
 
 - Installer, compiler et tester `srsRAN_4G` localement
 - Configurer un core LTE (`srsepc`) et lancer un eNodeB (`srsenb`)
@@ -9,7 +9,7 @@
 
 ---
 
-## 🧪 Étapes réalisées
+## Étapes réalisées
 
 ### 1. Clonage et compilation de `srsRAN_4G`
 ```bash
@@ -19,7 +19,7 @@ cmake .. && make -j$(nproc)
 sudo make install
 srsran_install_configs.sh user
 ```
-📌 **Résultat** : Compilation réussie, mais le binaire `srsepc` est introuvable
+> **Résultat** : Compilation réussie, mais le binaire `srsepc` est introuvable
 
 ### 2. Tentatives de correction
 
@@ -34,7 +34,7 @@ sudo apt install libboost-all-dev libsctp-dev libconfig++-dev libssl-dev
 ```bash
 make srsepc
 ```
-📌 **Résultat** : Aucun exécutable `srsepc` généré
+> **Résultat** : Aucun exécutable `srsepc` généré
 
 ### 3. Test avec dépôt `srsRAN_project`
 
@@ -44,7 +44,7 @@ make srsepc
 
 ---
 
-## 🛑 Problèmes rencontrés
+## Problèmes rencontrés
 
 - Compilation réussie mais fichiers absents
 - Incohérences entre les logs de build et les fichiers réels
@@ -52,14 +52,14 @@ make srsepc
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 - 🔹 `srsepc` introuvable malgré l’activation du module EPC
 - 🔹 Aucun fichier utilisable pour tester la chaîne radio
 
 ---
 
-## 📌 Prochaine étape recommandée
+## Prochaine étape recommandée
 
 - Revenir sur une version stable : **Ubuntu 20.04 + dépôt srsLTE**
 - Tester un setup **Docker stable (OpenAirInterface ou FireCell)**

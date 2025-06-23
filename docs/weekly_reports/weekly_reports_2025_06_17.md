@@ -1,6 +1,6 @@
-# 📅 Semaine du 17 au 21 juin 2025 – Suivi de stage OAI 5G
+# Semaine du 17 au 21 juin 2025 – Suivi de stage OAI 5G
 
-## 🔧 Objectif principal
+## Objectif principal
 
 Tester la connexion d’un UE (modem ou smartphone) à une infrastructure 5G Standalone (SA) en utilisant la stack OpenAirInterface :
 
@@ -10,7 +10,7 @@ Tester la connexion d’un UE (modem ou smartphone) à une infrastructure 5G Sta
 
 ---
 
-## ✅ Travaux réalisés
+## Travaux réalisés
 
 ### 1. Lancement du gNodeB
 
@@ -51,7 +51,7 @@ Tester la connexion d’un UE (modem ou smartphone) à une infrastructure 5G Sta
 
 ---
 
-## 🔍 Analyse
+## Analyse
 
 | Élément        | État    | Observations                          |
 | -------------- | ------- | ------------------------------------- |
@@ -60,9 +60,11 @@ Tester la connexion d’un UE (modem ou smartphone) à une infrastructure 5G Sta
 | UE (carte SIM) | Partiel | IMSI reçue, mais aucun GUTI attribué  |
 | Couche radio   | KO      | Pas de données UL reçues du modem/UE  |
 
+> GUTI (Globally Unique Temporary Identifier) : identifiant temporaire attribué à un UE lors de l’enregistrement sur un réseau 5G. Il évite de réutiliser l’IMSI à chaque fois.
+
 ---
 
-## 📌 Prochaines actions
+## Prochaines actions
 
 - Vérifier la configuration de la **carte SIM** (clé, OPC, IMSI)
 - Confirmer le **support du mode SA** sur l’UE utilisé

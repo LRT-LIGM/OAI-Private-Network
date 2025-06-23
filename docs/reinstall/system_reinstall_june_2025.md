@@ -1,20 +1,20 @@
-# 🔧 Documentation Hebdomadaire – Sauvegarde et Réinstallation Système (Semaine du 17 au 23 juin 2025)
+# Documentation Hebdomadaire – Sauvegarde et Réinstallation Système (Semaine du 17 au 23 juin 2025)
 
-## 📅 Semaine concernée :
+## Semaine concernée :
 
 **Du 17 au 23 juin 2025**
 
 ---
 
-## 🎯 Objectif principal
+## Objectif principal
 
 Sauvegarder les utilisateurs `etudiant` et `firecell` depuis une ancienne installation Ubuntu, nettoyer le disque, réinstaller le système, puis restaurer les données.
 
 ---
 
-## ✅ Étapes réalisées
+## Étapes réalisées
 
-### 1. 🎯 Analyse des données à sauvegarder
+### 1. Analyse des données à sauvegarder
 
 - Exploration des répertoires `/mnt/oldroot/BACKUP_USERS/etudiant` et `/mnt/oldroot/BACKUP_USERS/firecell`
 - Liste des plus gros dossiers :
@@ -25,7 +25,7 @@ Sauvegarder les utilisateurs `etudiant` et `firecell` depuis une ancienne instal
   - Dossiers lourds (`VirtualBox VMs`) déplacés sur un autre PC (\~45 Go)
   - Le reste (\~40 Go) transféré sur une clé USB (64 Go)
 
-### 2. 💾 Sauvegarde des données
+### 2. Sauvegarde des données
 
 #### a. Transfert via USB :
 
@@ -43,13 +43,13 @@ rsync -ah --info=progress2 ./VirtualBox\ VMs firecell@10.11.20.109:/home/etudian
 
 - Problème `Permission denied` corrigé en changeant d’utilisateur
 
-### 3. 🖥️ Réinstallation Ubuntu
+### 3. Réinstallation Ubuntu
 
 - Clé bootable préparée
 - Réinstallation propre
 - Création des comptes `etudiant` et `firecell`
 
-### 4. 🔁 Restauration des données
+### 4. Restauration des données
 
 #### a. Depuis la clé USB :
 
@@ -67,7 +67,7 @@ sudo usermod -aG sudo etudiant
 
 ---
 
-## 🧱 Problèmes rencontrés
+## Problèmes rencontrés
 
 | Problème rencontré                                 | Solution apportée                           |
 | -------------------------------------------------- | ------------------------------------------- |
@@ -78,7 +78,7 @@ sudo usermod -aG sudo etudiant
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 - Données critiques sauvegardées ✅
 - Système Ubuntu réinstallé avec succès ✅
@@ -87,7 +87,7 @@ sudo usermod -aG sudo etudiant
 
 ---
 
-## 📦 Suggestions pour la suite
+## Suggestions pour la suite
 
 - Supprimer les fichiers temporaires (`.cache`, `.iso`)
 - Vérifier les permissions des dossiers importants
