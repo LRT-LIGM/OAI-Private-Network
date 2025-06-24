@@ -1,10 +1,10 @@
-# 📅 Semaine du [à compléter] — Documentation OpenAirInterface (5G SA)
+# Semaine du 17 au 21 juin 2025 — Documentation OpenAirInterface (5G SA)
 
-## 🧩 Objectif de la semaine
+## Objectif de la semaine
 
 Comprendre et documenter l'architecture du système OpenAirInterface en mode 5G Standalone (SA), ainsi que la chaîne de connexion entre les différents composants réseau (UE, gNodeB, Core).
 
-## 📌 Tâches réalisées
+## Tâches réalisées
 
 ### 1. Étude de l'architecture OAI 5G SA
 
@@ -23,19 +23,25 @@ Comprendre et documenter l'architecture du système OpenAirInterface en mode 5G 
 - Confirmation que cette architecture correspond bien à celle utilisée avec OpenAirInterface.
 - Application pratique avec le matériel à disposition (modem Quectel, USRP si applicable).
 
-## 🖼️ Schéma produit
+## Schéma produit
 
 Un schéma a été généré pour illustrer le fonctionnement de la 5G SA avec OpenAirInterface. Celui-ci peut être intégré dans le rapport sous forme d’image ou lien :
 
-**Fichier image :** `OAI_5G_Architecture.png`
+### Schéma Architecture OAI 5G SA
 
-## ✅ Résultats
+![Schéma OAI 5G SA](../images/oai_5g_architecture.png)
+
+## Résultats
 
 - Bonne compréhension des composants et de leurs interactions.
 - Prêt à configurer les services OAI sur les machines dédiées (gNodeB, AMF, UPF, etc.).
 - Documentation prête à être intégrée dans le rapport de stage ou wiki technique.
 
 ---
+
+## Référence
+
+> [site_utilisé](https://openairinterface.org/oai-5g-core-network-project/)
 
 *Rédigé par :* Kopethan  
 *Encadré par :* M. Labiod

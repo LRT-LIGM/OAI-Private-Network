@@ -40,14 +40,14 @@ nav:
   - Troubleshooting : 
       - PDU Session Conflict : pdu_session_conflict.md
   - Rapport Hebdo:
-      - OAI 5G SA (17 juin): weekly_reports/2025-06-17.md
-      - srsRAN 4G (17 juin): srsran/2025-06-17.md
+      - OAI 5G SA (17 juin): weekly_reports/weekly_reports_2025_06_17.md
+      - srsRAN 4G (17 juin): srsran/srs_ran_4_g_setup_report.md
   - Architecture:
-      - OAI 5G SA: archi/oai_5g_architecture_doc.md
+      - OAI 5G SA: archi/architecture_oai_5_g_sa.md
   - SIM:
-      - Programmation Carte SIM: sim_card/doc_sim_programming.md
+      - Programmation Carte SIM: sim_card/sim_programming.md
   - Maintenance:
-      - Réinstallation Système: reinstall/reinstall_june.md
+      - Réinstallation Système: reinstall/system_reinstall_june_2025.md
 
 markdown_extensions:
   - toc:
