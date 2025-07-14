@@ -1,17 +1,18 @@
-# Rapport hebdomadaire – srsRAN 4G avec EPC (Semaine du 17 au 21 juin 2025)
+# Weekly Report – srsRAN 4G with EPC (Week of June 17–21, 2025)
 
-## Objectif de la semaine
+## Weekly Objective
 
-- Installer, compiler et tester `srsRAN_4G` localement
-- Configurer un core LTE (`srsepc`) et lancer un eNodeB (`srsenb`)
-- Connecter un smartphone Android via carte SIM
-- Diagnostiquer les problèmes de connexion
+* Install, compile, and test `srsRAN_4G` locally
+* Set up an LTE core (`srsepc`) and launch an eNodeB (`srsenb`)
+* Connect an Android smartphone via SIM card
+* Diagnose connection issues
 
 ---
 
-## Étapes réalisées
+## Steps Completed
 
-### 1. Clonage et compilation de `srsRAN_4G`
+### 1. Cloning and Compiling `srsRAN_4G`
+
 ```bash
 git clone https://github.com/srsran/srsRAN_4G.git
 cd srsRAN_4G && mkdir build && cd build
@@ -19,54 +20,60 @@ cmake .. && make -j$(nproc)
 sudo make install
 srsran_install_configs.sh user
 ```
-> **Résultat** : Compilation réussie, mais le binaire `srsepc` est introuvable
 
-### 2. Tentatives de correction
+> **Result**: Compilation successful, but `srsepc` binary not found
 
-- Nettoyage + recompilation avec `ENABLE_EPC=ON`
-- Tests sur plusieurs branches : `main`, `release_23_11`, `release_22_10`
-- Vérification des chemins (`/usr/local/bin`, `build/src/srsepc/`)
-- Installation des dépendances système :
+### 2. Fix Attempts
+
+* Clean rebuild with `ENABLE_EPC=ON`
+* Tried multiple branches: `main`, `release_23_11`, `release_22_10`
+* Verified paths (`/usr/local/bin`, `build/src/srsepc/`)
+* Installed system dependencies:
+
 ```bash
 sudo apt install libboost-all-dev libsctp-dev libconfig++-dev libssl-dev
 ```
-- Compilation ciblée :
+
+* Targeted compilation:
+
 ```bash
 make srsepc
 ```
-> **Résultat** : Aucun exécutable `srsepc` généré
 
-### 3. Test avec dépôt `srsRAN_project`
+> **Result**: No `srsepc` executable generated
 
-- Cloné : `https://github.com/srsran/srsRAN_project.git`
-- Compilation + installation → **succès affiché dans les logs**
-- ⚠️ Mais toujours **aucun fichier `srsenb` ou `srsepc`** trouvé sur le disque
+### 3. Test with `srsRAN_project` Repository
+
+* Cloned: `https://github.com/srsran/srsRAN_project.git`
+* Compilation + install → **successful build logs**
+* ⚠️ But still **no `srsenb` or `srsepc`** found on disk
 
 ---
 
-## Problèmes rencontrés
+## Issues Encountered
 
-- Compilation réussie mais fichiers absents
-- Incohérences entre les logs de build et les fichiers réels
-- Hypothèse : modules désactivés ou incompatibilité avec Ubuntu 24.04
+* Successful build but missing binaries
+* Mismatch between build logs and actual files
+* Hypothesis: modules disabled or incompatible with Ubuntu 24.04
 
 ---
 
 ## Conclusion
 
-- 🔹 `srsepc` introuvable malgré l’activation du module EPC
-- 🔹 Aucun fichier utilisable pour tester la chaîne radio
+* 🔹 `srsepc` not found despite EPC module enabled
+* 🔹 No usable binaries to test the radio stack
 
 ---
 
-## Prochaine étape recommandée
+## Recommended Next Steps
 
-- Revenir sur une version stable : **Ubuntu 20.04 + dépôt srsLTE**
-- Tester un setup **Docker stable (OpenAirInterface ou FireCell)**
-- Objectif : pouvoir lancer eNB + EPC et tester une vraie SIM avec USRP ou Quectel
+* Roll back to a stable version: **Ubuntu 20.04 + srsLTE repo**
+* Try a **stable Docker setup (OpenAirInterface or FireCell)**
+* Goal: be able to run eNB + EPC and test a real SIM with USRP or Quectel modem
 
 ---
 
-*Rédigé par :* Kopethan  
-*Encadré par :* M. Labiod
+*Written by:* Kopethan
+*Supervised by:* Mr. Labiod
 
+---

@@ -1,39 +1,40 @@
-# Semaine du 17 au 21 juin 2025 — Documentation OpenAirInterface (5G SA)
+# Week of June 17–21, 2025 — OpenAirInterface (5G SA) Documentation
 
-## Objectif de la semaine
+## Weekly Objective
 
-Comprendre et documenter l'architecture du système OpenAirInterface en mode 5G Standalone (SA), ainsi que la chaîne de connexion entre les différents composants réseau (UE, gNodeB, Core).
+Understand and document the architecture of the OpenAirInterface system in 5G Standalone (SA) mode, as well as the connection chain between the different network components (UE, gNodeB, Core).
 
-## Tâches réalisées
+## Tasks Completed
 
-### 1. Étude de l'architecture OAI 5G SA
+### 1. Study of OAI 5G SA Architecture
 
-- Lecture de la documentation officielle OAI.
-- Identification des composants principaux : UE, gNB, AMF, SMF, UPF, NRF, AUSF, UDM.
+* Reviewed the official OAI documentation.
+* Identified main components: UE, gNB, AMF, SMF, UPF, NRF, AUSF, UDM.
 
-### 2. Schématisation
+### 2. Diagram Creation
 
-- Création d'un schéma clair représentant l’architecture 5G SA.
-- Ajout des flèches entre les composants avec le nom des interfaces.
-- Vérification du chemin complet entre un smartphone (UE) et Internet via le Core 5G.
+* Designed a clear diagram representing the 5G SA architecture.
+* Added arrows between components with interface names.
+* Verified the full data path from a smartphone (UE) to the Internet via the 5G Core.
 
-### 3. Discussion technique
+### 3. Technical Discussion
 
-- Confirmation que cette architecture correspond bien à celle utilisée avec OpenAirInterface.
-- Application pratique avec le matériel à disposition (modem Quectel, USRP si applicable).
+* Confirmed that this architecture matches the one implemented with OpenAirInterface.
+* Practical application using available equipment (Quectel modem, USRP if applicable).
 
-## Résultats
+## Results
 
-- Bonne compréhension des composants et de leurs interactions.
-- Prêt à configurer les services OAI sur les machines dédiées (gNodeB, AMF, UPF, etc.).
-- Documentation prête à être intégrée dans le rapport de stage ou wiki technique.
+* Solid understanding of the components and their interactions.
+* Ready to configure OAI services on dedicated machines (gNodeB, AMF, UPF, etc.).
+* Documentation ready for integration into the internship report or technical wiki.
 
 ---
 
-## Référence
+## Reference
 
-> [site_utilisé](https://openairinterface.org/oai-5g-core-network-project/)
+> [site\_used](https://openairinterface.org/oai-5g-core-network-project/)
 
-*Rédigé par :* Kopethan  
-*Encadré par :* M. Labiod
+*Written by:* Kopethan
+*Supervised by:* Mr. Labiod
 
+---

@@ -1,65 +1,68 @@
-# Documentation Hebdomadaire – Sauvegarde et Réinstallation Système (Semaine du 17 au 23 juin 2025)
+# Weekly Documentation – System Backup and Reinstallation (Week of June 17–23, 2025)
 
-## Semaine concernée :
+## Week Covered:
 
-**Du 17 au 23 juin 2025**
-
----
-
-## Objectif principal
-
-Sauvegarder les utilisateurs `etudiant` et `firecell` depuis une ancienne installation Ubuntu, nettoyer le disque, réinstaller le système, puis restaurer les données.
+**From June 17 to June 23, 2025**
 
 ---
 
-## Étapes réalisées
+## Main Objective
 
-### 1. Analyse des données à sauvegarder
+Back up the `etudiant` and `firecell` users from an old Ubuntu installation, clean the disk, reinstall the system, then restore the data.
 
-- Exploration des répertoires `/mnt/oldroot/BACKUP_USERS/etudiant` et `/mnt/oldroot/BACKUP_USERS/firecell`
-- Liste des plus gros dossiers :
+---
+
+## Steps Completed
+
+### 1. Data Analysis Before Backup
+
+* Explored the directories:
+  `/mnt/oldroot/BACKUP_USERS/etudiant` and `/mnt/oldroot/BACKUP_USERS/firecell`
+* Listed largest folders:
+
   ```bash
   sudo du -ah . | sort -rh | head -n 30
   ```
-- Décision :
-  - Dossiers lourds (`VirtualBox VMs`) déplacés sur un autre PC (\~45 Go)
-  - Le reste (\~40 Go) transféré sur une clé USB (64 Go)
+* Decisions:
 
-### 2. Sauvegarde des données
+  * Heavy folders (`VirtualBox VMs`) moved to another PC (\~45 GB)
+  * Remaining data (\~40 GB) transferred to a 64 GB USB drive
 
-#### a. Transfert via USB :
+### 2. Data Backup
+
+#### a. USB Transfer:
 
 ```bash
 sudo rsync -av --progress ./ /media/ubuntu/Ventoy/etudiant/
 ```
 
-- Ajout de l’option `--no-o --no-g` si besoin (droits fichiers)
+* Added `--no-o --no-g` if needed (file permission issues)
 
-#### b. Transfert réseau avec rsync :
+#### b. Network Transfer via rsync:
 
 ```bash
 rsync -ah --info=progress2 ./VirtualBox\ VMs firecell@10.11.20.109:/home/etudiant/
 ```
 
-- Problème `Permission denied` corrigé en changeant d’utilisateur
+* `Permission denied` error solved by switching to the correct user
 
-### 3. Réinstallation Ubuntu
+### 3. Ubuntu Reinstallation
 
-- Clé bootable préparée
-- Réinstallation propre
-- Création des comptes `etudiant` et `firecell`
+* Bootable USB key prepared
+* Clean installation performed
+* Created `etudiant` and `firecell` user accounts
 
-### 4. Restauration des données
+### 4. Data Restoration
 
-#### a. Depuis la clé USB :
+#### a. From USB drive:
 
 ```bash
 sudo rsync -ah --info=progress2 /media/firecell/Ventoy/etudiant/ /home/etudiant/
 ```
 
-#### b. Résolution des erreurs de droits :
+#### b. Fixing Permissions:
 
-- Depuis `firecell` :
+* From `firecell` user:
 
 ```bash
 sudo usermod -aG sudo etudiant
@@ -67,33 +70,35 @@ sudo usermod -aG sudo etudiant
 
 ---
 
-## Problèmes rencontrés
+## Issues Encountered
 
-| Problème rencontré                                 | Solution apportée                           |
-| -------------------------------------------------- | ------------------------------------------- |
-| `rsync: chown failed: Operation not permitted (1)` | Utilisation de `--no-o --no-g`              |
-| `etudiant n’est pas dans le fichier sudoers`       | Ajout au groupe `sudo`                      |
-| `Permission denied` lors de la copie dans `/home`  | Lancer rsync avec `sudo` ou bon utilisateur |
-| Fichiers trop lourds pour USB                      | Transfert sur autre PC                      |
+| Issue                                              | Solution Provided                          |
+| -------------------------------------------------- | ------------------------------------------ |
+| `rsync: chown failed: Operation not permitted (1)` | Used `--no-o --no-g`                       |
+| `etudiant is not in the sudoers file`              | Added to the `sudo` group                  |
+| `Permission denied` when copying to `/home`        | Used `sudo` or the correct user with rsync |
+| Files too large for USB transfer                   | Used another PC for transfer               |
 
 ---
 
 ## Conclusion
 
-- Données critiques sauvegardées ✅
-- Système Ubuntu réinstallé avec succès ✅
-- Droits utilisateurs restaurés ✅
-- Structure et accès aux données fonctionnels ✅
+* Critical data successfully backed up ✅
+* Ubuntu system reinstalled successfully ✅
+* User permissions restored ✅
+* Data structure and access functional ✅
 
 ---
 
-## Suggestions pour la suite
+## Suggestions Going Forward
 
-- Supprimer les fichiers temporaires (`.cache`, `.iso`)
-- Vérifier les permissions des dossiers importants
-- Réinstaller les outils nécessaires (VirtualBox, SSH, etc.)
+* Delete temporary files (`.cache`, `.iso`, etc.)
+* Check folder permissions
+* Reinstall necessary tools (VirtualBox, SSH, etc.)
 
 ---
 
-*Rédigé par :* Kopethan *Encadré par :* M. Labiod
+*Written by:* Kopethan
+*Supervised by:* Mr. Labiod
 
+---

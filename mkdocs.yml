@@ -40,14 +40,38 @@ nav:
   - Troubleshooting : 
       - PDU Session Conflict : pdu_session_conflict.md
   - Rapport Hebdo:
-      - OAI 5G SA (17 juin): weekly_reports/2025-06-17.md
-      - srsRAN 4G (17 juin): srsran/2025-06-17.md
-  - Architecture:
-      - OAI 5G SA: archi/oai_5g_architecture_doc.md
-  - SIM:
-      - Programmation Carte SIM: sim_card/doc_sim_programming.md
-  - Maintenance:
-      - Réinstallation Système: reinstall/reinstall_june.md
+      - Week 25:
+          - OAI 5G SA (17 juin): week_25/weekly_reports/weekly_reports_2025_06_17.md
+          - srsRAN 4G (17 juin): week_25/srsran/srs_ran_4_g_setup_report.md
+          - Architecture OAI 5G SA: week_25/archi/architecture_oai_5_g_sa.md
+          - SIM Programming: week_25/sim_card/sim_programming.md
+          - System Reinstall (June 2025): week_25/reinstall/system_reinstall_june_2025.md
+      - Week 26:
+          - 01 - Modem Configuration: week_26/01_modem_configuration.md
+          - 02 - Network Tests: week_26/02_network_tests.md
+          - 03 - Tcpdump Analysis: week_26/03_tcpdump_analysis.md
+          - 04 - Core Network Status: week_26/04_core_network_status.md
+          - 05 - Ext-DN Debug: week_26/05_ext_dn_debug.md
+          - 06 - Debug Investigations: week_26/06_debug_investigations.md
+      - Week 27:
+          - 01 - Index: week_27/index.md
+          - 02 - Configuration: week_27/configuration.md
+          - 03 - Installation: week_27/installation.md
+          - 04 - QMI Commands: week_27/qmi_commands.md
+          - 05 - Setup Core: week_27/setup_core.md
+          - 06 - Setup gNodeB: week_27/setup_gnb.md
+          - 07 - Tests: week_27/tests.md
+      - Week 28:
+          - 00 - Overview: week_28/00_overview.md
+          - 01 - Environment Setup: week_28/01_environment_setup.md
+          - 02 - Configuration Files: week_28/02_configuration_files.md
+          - 03 - Build Errors and Fixes: week_28/03_build_errors_and_fixes.md
+          - 04 - Running Tests and Logs: week_28/04_running_tests_and_logs.md
+          - 05 - Code Modifications: week_28/05_code_modifications.md
+          - 06 - Analysis Metrics: week_28/06_analysis_metrics.md
+          - FlexRIC - Layers Intro: week_28/flexric_layers_intro.md
+          - FlexRIC - Metrics Explanation: week_28/flex_ric_metrics_explanation.md
+          - Logs Explanation: week_28/logs_explanation.md
 
 markdown_extensions:
   - toc:

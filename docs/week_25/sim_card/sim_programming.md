@@ -1,48 +1,51 @@
-# Semaine du 17 au 21 juin 2025 – Programmation de la carte SIM Sysmocom
+# Week of June 17–21, 2025 – Programming the Sysmocom SIM Card
 
-## Objectif
+## Objective
 
-Configurer une carte SIM programmable (Sysmocom) afin qu'elle soit utilisable avec un gNodeB (OpenAirInterface), en programmant les champs IMSI, KEY, OPC, ISDN, ACC, SPN, et en vérifiant le fonctionnement de l'authentification AKA.
-
----
-
-## Matériel utilisé
-
-- Carte SIM Sysmocom (ICCID : 8988211000001037921f)
-- Lecteur USB SmartCard compatible PCSC
-- Adaptateur série USB (PL2303)
-- Port `/dev/ttyUSB0` reconnu
-- Logiciel : `program_uicc` (uicc-v3.3 depuis OpenCells)
+Configure a programmable SIM card (Sysmocom) for use with a gNodeB (OpenAirInterface) by setting the IMSI, KEY, OPC, ISDN, ACC, SPN fields, and verifying AKA authentication functionality.
 
 ---
 
-## Étapes réalisées
+## Hardware Used
 
-### 🔹 Préparation de l’environnement
+* Sysmocom SIM Card (ICCID: 8988211000001037921f)
+* USB SmartCard Reader (PCSC compatible)
+* USB Serial Adapter (PL2303)
+* Recognized port: `/dev/ttyUSB0`
+* Software: `program_uicc` (uicc-v3.3 from OpenCells)
 
-- Installation de `libccid`, `pcscd`, `pcsc-tools`
-- Correction du code source `program_uicc.c` pour éviter les erreurs de segmentation
-- Recompilation :
+---
+
+## Steps Completed
+
+### 🔹 Environment Setup
+
+* Installed `libccid`, `pcscd`, `pcsc-tools`
+* Patched the `program_uicc.c` source code to fix segmentation faults
+* Recompiled:
+
   ```bash
   make clean && make
   ```
 
-### 🔹 Tests de lecture
+### 🔹 Read Tests
 
-- ICCID correctement lu : `8988211000001037921f`
-- Lecture de l'IMSI échouée → fichier manquant ou protégé
+* ICCID read successfully: `8988211000001037921f`
+* IMSI read failed → file missing or access protected
 
-### 🔹 Tentatives de programmation
+### 🔹 Programming Attempts
 
-- Codes ADM testés : `00000000`, `12345678`, `11111111`, `22222222`, `68594154`, etc.
-- Tous renvoient :
-  - `9840` → Security status not satisfied
-  - `6983` → Authentication method blocked
-- Conclusion : **le bon code ADM est requis** pour programmer les données sensibles
+* ADM codes tested: `00000000`, `12345678`, `11111111`, `22222222`, `68594154`, etc.
+* All returned:
 
-### 🔹 Authentification AKA
+  * `9840` → Security status not satisfied
+  * `6983` → Authentication method blocked
+* Conclusion: **Correct ADM code is required** to program sensitive fields
 
-- Tests réalisés avec `KEY` et `OPC` → authentification réussie ✅
+### 🔹 AKA Authentication
+
+* Tests run with `KEY` and `OPC` → successful authentication ✅
+
   ```
   Succeeded to authentify with SQN: 832
   set HSS SQN value as: 864
@@ -50,21 +53,22 @@ Configurer une carte SIM programmable (Sysmocom) afin qu'elle soit utilisable av
 
 ---
 
-## Résultats actuels
+## Current Results
 
-- La carte SIM répond aux commandes standards
-- Écriture IMSI impossible sans code ADM
-- L’authentification réseau (AKA) fonctionne
-
----
-
-## Actions suivantes
-
-- Contacter M. Labiod pour obtenir le **code ADM** de la SIM (ICCID : 8988211000001037921f)
-- Refaire un test complet avec le bon code ADM dès que disponible
+* SIM card responds to standard commands
+* IMSI writing is not possible without ADM code
+* Network authentication (AKA) works successfully
 
 ---
 
-*Rédigé par :* Kopethan\
-*Encadré par :* M. Labiod
+## Next Actions
 
+* Contact Mr. Labiod to obtain the **ADM code** for the SIM (ICCID: 8988211000001037921f)
+* Repeat full test with correct ADM code when available
+
+---
+
+*Written by:* Kopethan
+*Supervised by:* Mr. Labiod
+
+---

@@ -1,81 +1,89 @@
-# Semaine du 17 au 21 juin 2025 – Suivi de stage OAI 5G
+# Week of June 17–21, 2025 – OAI 5G Internship Progress Report
 
-## Objectif principal
+## Main Objective
 
-Tester la connexion d’un UE (modem ou smartphone) à une infrastructure 5G Standalone (SA) en utilisant la stack OpenAirInterface :
+Test the connection of a UE (modem or smartphone) to a 5G Standalone (SA) infrastructure using the OpenAirInterface stack:
 
-- Lancer le gNodeB (`nr-softmodem`)
-- Connecter l'AMF via Docker
-- Vérifier l’attachement de l’UE et l’attribution d’un GUTI
+* Launch the gNodeB (`nr-softmodem`)
+* Connect the AMF via Docker
+* Verify UE attachment and GUTI assignment
 
 ---
 
-## Travaux réalisés
+## Work Completed
 
-### 1. Lancement du gNodeB
+### 1. gNodeB Launch
 
-- Lancement de `nr-softmodem` en mode SA sur la bande **n78 (3619.2 MHz)** :
+* Launched `nr-softmodem` in SA mode on band **n78 (3619.2 MHz)**:
+
   ```bash
   sudo ./nr-softmodem -O ...gnb.sa.band78.fr1.106PRB.usrpb210.conf --continuous-tx -E
   ```
-  - USRP B210 reconnu (RX/TX OK, fréquence et gains bien configurés)
-  - Transmission continue activée (`--continuous-tx`)
 
-### 2. Statut de l’AMF
+  * USRP B210 recognized (RX/TX OK, frequency and gains properly configured)
+  * Continuous transmission enabled (`--continuous-tx`)
 
-- Conteneur AMF lancé et en bon état :
+### 2. AMF Status
+
+* AMF container running and healthy:
+
   ```bash
   docker ps | grep amf → healthy
   ```
-- Communication NGAP établie entre gNB et AMF (port SCTP 38412)
+* NGAP communication established between gNB and AMF (SCTP port 38412)
 
-### 3. Test de l’attachement d’un UE
+### 3. UE Attachment Test
 
-- Enregistrement partiel détecté :
-  - `5GMM-REGISTERED` visible côté AMF
-  - IMSI de la carte SIM correcte
-  - Mais **pas de GUTI attribué** (champ vide)
-- Logs `nr-softmodem` → nombreuses erreurs uplink :
-  - `UL Failure`, `RSRP = 0`, `out-of-sync`
-  - L’UE semble **ne pas transmettre ou être mal reçu**
+* Partial registration detected:
 
-### 4. Résultat supplémentaire important
+  * `5GMM-REGISTERED` visible on AMF side
+  * SIM card IMSI correctly received
+  * But **no GUTI assigned** (empty field)
+* `nr-softmodem` logs → multiple uplink errors:
 
-- L'AMF affiche une connexion UE avec l'IMSI 001010000059463 → **attachement visible**
+  * `UL Failure`, `RSRP = 0`, `out-of-sync`
+  * UE seems **not transmitting or not being properly received**
 
-### 5. Tentatives d’optimisation
+### 4. Additional Key Result
 
-- Ajout de `--tune-offset` pour réduire le bruit DC
-- Réduction du `min_rxtxtime` à 8
-- Placement physique proche de l'antenne
+* AMF shows a UE connection with IMSI `001010000059463` → **attachment observed**
 
----
+### 5. Optimization Attempts
 
-## Analyse
-
-| Élément        | État    | Observations                          |
-| -------------- | ------- | ------------------------------------- |
-| gNodeB         | OK      | Connecté à l’AMF, transmission active |
-| AMF            | OK      | En ligne, heartbeat NRF régulier      |
-| UE (carte SIM) | Partiel | IMSI reçue, mais aucun GUTI attribué  |
-| Couche radio   | KO      | Pas de données UL reçues du modem/UE  |
-
-> GUTI (Globally Unique Temporary Identifier) : identifiant temporaire attribué à un UE lors de l’enregistrement sur un réseau 5G. Il évite de réutiliser l’IMSI à chaque fois.
+* Added `--tune-offset` to reduce DC noise
+* Lowered `min_rxtxtime` to 8
+* Physically placed UE close to the antenna
 
 ---
 
-## Prochaines actions
+## Analysis
 
-- Vérifier la configuration de la **carte SIM** (clé, OPC, IMSI)
-- Confirmer le **support du mode SA** sur l’UE utilisé
-- Continuer l’analyse des logs AMF :
+| Component     | Status  | Observations                          |
+| ------------- | ------- | ------------------------------------- |
+| gNodeB        | OK      | Connected to AMF, active transmission |
+| AMF           | OK      | Running, regular NRF heartbeat        |
+| UE (SIM card) | Partial | IMSI received, but no GUTI assigned   |
+| Radio Layer   | KO      | No uplink data received from UE       |
+
+> GUTI (Globally Unique Temporary Identifier): a temporary identifier assigned to a UE upon registration to a 5G network. It avoids reusing the IMSI every time.
+
+---
+
+## Next Steps
+
+* Verify **SIM card configuration** (KEY, OPC, IMSI)
+* Confirm **SA mode support** on the UE used
+* Continue analyzing AMF logs:
+
   ```bash
   docker logs oai-amf -f
   ```
-- Tester avec un autre UE ou une autre SIM si besoin
-- Tester avec `nr-uesoftmodem` en mode `--rfsim`
+* Test with another UE or SIM if needed
+* Try using `nr-uesoftmodem` in `--rfsim` mode
 
 ---
 
-*Rédigé par :* Kopethan *Encadré par :* M. Labiod
+*Written by:* Kopethan
+*Supervised by:* Mr. Labiod
 
+---
