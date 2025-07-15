@@ -1,7 +1,3 @@
-Here is the **full English translation** of your document — same structure and ready to insert into your report or GitHub:
-
----
-
 # softmodem.log — Successful Connection Log
 
 This file contains the complete log (`softmodem.log`) corresponding to a **successful** run of the gNodeB `nr-softmodem` with a correctly programmed and registered SIM card.
