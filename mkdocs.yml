@@ -132,6 +132,11 @@ nav:
           - Logs Explanation: week_28/logs_explanation.md
   - Troubleshooting:
       - Modem Connection: troubleshooting/modem_connection.md
+  - Files & Artifacts:
+      - Config Files: files/config/5GN78.conf
+      - Docker Files: files/docker/basic_nrf_config.yaml
+      - Scripts Modified: files/scripts/xapp_mac_rlc_pdcp_gtp_moni_modified.py
+      - Scripts Original: files/scripts/xapp_mac_rlc_pdcp_gtp_moni.py
 
 markdown_extensions:
   - toc:
