@@ -137,6 +137,7 @@ nav:
       - Docker Files: files/docker/basic_nrf_config.yaml
       - Scripts Modified: files/scripts/xapp_mac_rlc_pdcp_gtp_moni_modified.py
       - Scripts Original: files/scripts/xapp_mac_rlc_pdcp_gtp_moni.py
+      - Database File: files/sql/oai_db2.sql
 
 markdown_extensions:
   - toc:
