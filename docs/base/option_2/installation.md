@@ -53,6 +53,32 @@ sudo usermod -aG docker $USER
 
 ---
 
+### Fix – Enable `docker compose` command manually (if plugin not detected)
+
+If `docker compose version` returns an error (e.g., "unknown command"), follow these steps to install Docker Compose v2 manually:
+
+```bash
+# Create plugin directory
+mkdir -p ~/.docker/cli-plugins
+
+# Download latest stable Docker Compose binary (v2.x)
+curl -SL https://github.com/docker/compose/releases/download/v2.24.6/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+
+# Make it executable
+chmod +x ~/.docker/cli-plugins/docker-compose
+```
+
+Then verify:
+
+```bash
+docker compose version
+# Expected output: Docker Compose version v2.24.6
+```
+
+> This method bypasses the need for `docker-compose-plugin` and works even if Docker CLI doesn't detect it by default.
+
+---
+
 ## 3. Clone the project
 
 ```bash

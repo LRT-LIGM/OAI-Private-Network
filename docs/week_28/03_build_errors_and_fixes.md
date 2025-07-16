@@ -1,3 +1,6 @@
+> **⚠️ Important Note**  
+> This file contains useful information.
+
 # Build Errors & Fixes – FlexRIC + xApps
 
 This document tracks all the issues we encountered during the build phase and how we resolved them.

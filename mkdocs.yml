@@ -24,28 +24,86 @@ theme:
       accent: indigo
 
 nav:
-  - Home: index.md
-  - Configuration: configuration.md
-  - Installation: installation.md
-  - Lancement: lancement.md
-  - USRP: usrp_sdr.md
-  - Les Commandes:
-      - QMI Commands: qmi_commands.md
-      - AT Commandes: at_commands_reference.md
-      - SQL Commands: docker_mysql_oai_commands.md
-  - Tests: 
-      - Log gNodeB: softmodem_log_success.md
-      - Programmation De La Carte SIM: sim_programming_success.md
-  - Uicc SIM: uicc_sim_commands.md
-  - Troubleshooting : 
-      - PDU Session Conflict : pdu_session_conflict.md
-  - Rapport Hebdo:
+  - Home: base/index.md
+  - Table Of Content : base/toc.md
+
+  - Base Setup:
+      - Option 1 (Recommandé):
+          - Installation: base/option_1/installation.md
+          - Configuration: base/option_1/configuration.md
+          - Lancement: base/option_1/lancement.md
+      - Option 2 :  
+          - Installation: base/option_2/installation.md
+          - Configuration: base/option_2/configuration.md
+          - Lancement: base/option_2/lancement.md
+
+  - SIM & UE:
+      - SIM Programming: sim_ue/sim_programming_success.md
+      - PDU Session Conflict: sim_ue/pdu_session_conflict.md
+      - Softmodem Logs: sim_ue/softmodem_log_success.md
+
+  - USRP:
+      - USRP SDR Setup: usrp/usrp_sdr.md
+
+  - Tools & Commands:
+      - QMI Commands: tools/qmi_commands.md
+      - AT Commands: tools/at_commands_reference.md
+      - Docker MySQL Commands: tools/docker_mysql_oai_commands.md
+      - UICC SIM Commands: tools/uicc_sim_commands.md
+
+  - FlexRIC – xApp Guides:
+      - XApp SDK Build: flexric-xapp-docs/build_xapp_sdk_flexric_20250715_092308.md
+      - Python XApp Doc: flexric-xapp-docs/python_xapps_flexric_doc_20250715_085119.md
+      - XApp Global Doc: flexric-xapp-docs/xapp_flexric_doc_20250715_084929.md
+      - Available Metrics: flexric-xapp-docs/flexric_xapp_available_metrics_20250715_125246.md
+      - Extendable Metrics: flexric-xapp-docs/flexric_xapp_extendable_metrics_20250715_125246.md
+      - Metrics Catalog: flexric-xapp-docs/flexric_xapp_metrics_catalog_20250715_094705.md
+      - Analyze DB Example: flexric-xapp-docs/analyze_xapp_db_20250715_093139.md
+      - Analyze DB Schema: flexric-xapp-docs/analyze_xapp_db_schema_20250715_093856.md
+      - Modem Connection: flexric-xapp-docs/modem_connection.md
+
+  - FlexRIC – Modules:
+      - MAC:
+          - Overview: flexric-docs/mac/00_overview.md
+          - Callback Setup: flexric-docs/mac/01_callback_setup.md
+          - Access UE Stats: flexric-docs/mac/02_access_ue_stats.md
+          - Display Metrics: flexric-docs/mac/03_display_metrics.md
+          - Common Fields: flexric-docs/mac/04_common_fields.md
+          - Debugging: flexric-docs/mac/05_debugging.md
+          - Field Reference: flexric-docs/mac/06_field_reference.md
+      - RLC:
+          - Overview: flexric-docs/rlc/00_overview.md
+          - Callback Setup: flexric-docs/rlc/01_callback_setup.md
+          - Access UE Stats: flexric-docs/rlc/02_access_ue_stats.md
+          - Display Metrics: flexric-docs/rlc/03_display_metrics.md
+          - Common Fields: flexric-docs/rlc/04_common_fields.md
+          - Debugging: flexric-docs/rlc/05_debugging.md
+          - Field Reference: flexric-docs/rlc/06_field_reference.md
+        
+      - PDCP:
+          - Overview: flexric-docs/pdcp/00_overview.md
+          - Callback Setup: flexric-docs/pdcp/01_callback_setup.md
+          - Access UE Stats: flexric-docs/pdcp/02_access_ue_stats.md
+          - Display Metrics: flexric-docs/pdcp/03_display_metrics.md
+          - Common Fields: flexric-docs/pdcp/04_common_fields.md
+          - Debugging: flexric-docs/pdcp/05_debugging.md
+          - Field Reference: flexric-docs/pdcp/06_field_reference.md
+      - GTP:
+          - Overview: flexric-docs/gtp/00_overview.md
+          - Callback Setup: flexric-docs/gtp/01_callback_setup.md
+          - Access UE Stats: flexric-docs/gtp/02_access_ue_stats.md
+          - Display Metrics: flexric-docs/gtp/03_display_metrics.md
+          - Common Fields: flexric-docs/gtp/04_common_fields.md
+          - Debugging: flexric-docs/gtp/05_debugging.md
+          - Field Reference: flexric-docs/gtp/06_field_reference.md
+
+  - Weekly Reports:
       - Week 25:
-          - OAI 5G SA (17 juin): week_25/weekly_reports/weekly_reports_2025_06_17.md
-          - srsRAN 4G (17 juin): week_25/srsran/srs_ran_4_g_setup_report.md
-          - Architecture OAI 5G SA: week_25/archi/architecture_oai_5_g_sa.md
+          - OAI Architecture: week_25/archi/architecture_oai_5_g_sa.md
           - SIM Programming: week_25/sim_card/sim_programming.md
-          - System Reinstall (June 2025): week_25/reinstall/system_reinstall_june_2025.md
+          - System Reinstall: week_25/reinstall/system_reinstall_june_2025.md
+          - srsRAN 4G Setup: week_25/srsran/srs_ran_4_g_setup_report.md
+          - Weekly Log (17 June): week_25/weekly_reports/weekly_reports_2025_06_17.md
       - Week 26:
           - 01 - Modem Configuration: week_26/01_modem_configuration.md
           - 02 - Network Tests: week_26/02_network_tests.md
@@ -54,13 +112,13 @@ nav:
           - 05 - Ext-DN Debug: week_26/05_ext_dn_debug.md
           - 06 - Debug Investigations: week_26/06_debug_investigations.md
       - Week 27:
-          - 01 - Index: week_27/index.md
-          - 02 - Configuration: week_27/configuration.md
-          - 03 - Installation: week_27/installation.md
-          - 04 - QMI Commands: week_27/qmi_commands.md
-          - 05 - Setup Core: week_27/setup_core.md
-          - 06 - Setup gNodeB: week_27/setup_gnb.md
-          - 07 - Tests: week_27/tests.md
+          - Index: week_27/index.md
+          - Installation: week_27/installation.md
+          - Configuration: week_27/configuration.md
+          - QMI Commands: week_27/qmi_commands.md
+          - Setup Core: week_27/setup_core.md
+          - Setup gNodeB: week_27/setup_gnb.md
+          - Tests: week_27/tests.md
       - Week 28:
           - 00 - Overview: week_28/00_overview.md
           - 01 - Environment Setup: week_28/01_environment_setup.md
@@ -69,9 +127,11 @@ nav:
           - 04 - Running Tests and Logs: week_28/04_running_tests_and_logs.md
           - 05 - Code Modifications: week_28/05_code_modifications.md
           - 06 - Analysis Metrics: week_28/06_analysis_metrics.md
-          - FlexRIC - Layers Intro: week_28/flexric_layers_intro.md
-          - FlexRIC - Metrics Explanation: week_28/flex_ric_metrics_explanation.md
+          - FlexRIC Layer Intro: week_28/flexric_layers_intro.md
+          - Metrics Explanation: week_28/flex_ric_metrics_explanation.md
           - Logs Explanation: week_28/logs_explanation.md
+  - Troubleshooting:
+      - Modem Connection: troubleshooting/modem_connection.md
 
 markdown_extensions:
   - toc:

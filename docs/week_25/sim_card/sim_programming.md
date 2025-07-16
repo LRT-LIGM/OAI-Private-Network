@@ -21,7 +21,6 @@ Configure a programmable SIM card (Sysmocom) for use with a gNodeB (OpenAirInter
 ### 🔹 Environment Setup
 
 * Installed `libccid`, `pcscd`, `pcsc-tools`
-* Patched the `program_uicc.c` source code to fix segmentation faults
 * Recompiled:
 
   ```bash

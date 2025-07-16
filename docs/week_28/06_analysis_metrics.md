@@ -1,3 +1,6 @@
+> **⚠️ Important Note**  
+> This file contains useful information.
+
 # Metrics Analysis – FlexRIC + OAI 5G SA
 
 This document explains how we interpreted and validated metrics extracted from the FlexRIC xApp runtime database (`/tmp/xapp_db_*.db`).

@@ -1,3 +1,6 @@
+> **⚠️ Important Note**  
+> This file contains useful information not covered in the main documentation. It is recommended for debugging.
+
 # 06 - Debug Investigations & Manual Commands
 
 ## Objective

@@ -1,3 +1,6 @@
+> **⚠️ Important Note**  
+> This file contains useful information not covered in the main documentation. It is recommended for troubleshooting.
+
 # QMI Commands Used
 
 This document lists and explains all `qmicli` and related commands used during the 5G private network project with the Quectel modem.

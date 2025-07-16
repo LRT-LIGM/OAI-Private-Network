@@ -1,3 +1,6 @@
+> **⚠️ Important Note**  
+> This file contains useful information not covered in the main documentation. It is recommended for understanding architecture.
+
 # Week of June 17–21, 2025 — OpenAirInterface (5G SA) Documentation
 
 ## Weekly Objective

@@ -1,3 +1,6 @@
+> **⚠️ Important Note**  
+> This file contains useful information not covered in the main documentation. It is recommended for understanding architecture
+
 # FlexRIC - Protocol Stack Layers Explained
 
 This document introduces and explains the different protocol stack layers involved in FlexRIC monitoring: **MAC**, **RLC**, **PDCP**, and **GTP**. These are part of the 5G NR (and LTE) protocol stack and are responsible for handling all user and control data transferred through the RAN.

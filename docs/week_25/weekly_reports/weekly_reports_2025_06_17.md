@@ -1,3 +1,6 @@
+> **⚠️ Important Note**  
+> This file contains useful information not covered in the main documentation. It is recommended for debugging.
+
 # Week of June 17–21, 2025 – OAI 5G Internship Progress Report
 
 ## Main Objective

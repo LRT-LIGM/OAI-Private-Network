@@ -15,7 +15,7 @@ Set up a private 5G network using the **OpenAirInterface (OAI)** suite:
 ## Supervisors
 
 * **Internship Supervisor**: Mr. Labiod
-* **Technical Advisor**: Mr. Clément
+* **Technical Advisor**: Mr. Dutriez
 * **Institution**: IUT Créteil-Vitry, Université Paris-Est Créteil (UPEC)
 
 ## Technical Environment

@@ -1,3 +1,6 @@
+> **⚠️ Important Note**  
+> This file contains useful information not covered in the main documentation. It is recommended for debugging.
+
 # FlexRIC Execution Log Explanation
 
 This document explains the meaning of important log entries during the execution of the FlexRIC near-RT RIC and the `xapp_gtp_mac_rlc_pdcp_moni` xApp. These logs indicate whether the platform is functioning correctly, which plugins are loaded, and how data subscriptions are managed.
